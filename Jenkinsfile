@@ -21,13 +21,15 @@ pipeline {
             }
         }
         stage ('DEPLOYED to DEV') {
-            when 
+            when{
                 expression{
                     params.PROD/nNONPROD == 'dev'
                 }
                 steps {
                     echo "DEPLOYED TO DEV"
                 }
+            }
+
             }
 
         }
