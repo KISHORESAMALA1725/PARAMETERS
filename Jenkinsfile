@@ -23,7 +23,7 @@ pipeline {
         stage (This is NO stage) {
             when {
                 expression {
-                    params.choices == 'no'
+                    params.CHOICES == 'no'
                 }
             }
             steps {
