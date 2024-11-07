@@ -1,38 +1,34 @@
 pipeline {
     agent any
     parameters {
-        string (name: 'USERNAME', defaultValue: 'KISHORE', description: 'Please Enter you name')
-        choice (name: 'PRODNONPROD', choices: ['prod','dev','uat'], description: 'Please enter your choice')
+        string (name: 'USERNAME', defaultValue: 'KISHORE', description: 'Please Enter Your Name')
+        choice (name: 'CHOICES', choices: ['yes','no'], description: 'Please enter your choice')
     }
     stages {
-        stage ('This is BUILD-STAGE') {
+        stage('This is first stage') {
             steps {
-                echo "***** THIS IS BUILD STAGE *****"
+                echo "This is First stage"
             }
         }
-        stage ('This is when+parameter stage') {
-            steps{
-            when {
-                expression{
-                     params.PRODNONPROD == 'prod'
-                }
-            }
-            steps {
-                echo "DEPLOYED TO PROD SUCCESSFULLY"
-            }
-            }
-
-         stage ('this is dev stage')  {
+        stage ('This is choice stage') {
             when {
                 expression {
-                    params.PRODNONPROD == 'dev'
+                    params.CHOICES == 'yes'
                 }
             }
             steps {
-                echo "DEPLOYED TO DEV SUCCESSFULLY"
+                echo "DEPLOYED TO PROD"
             }
-         }
-
         }
+        stage (This is NO stage) {
+            when {
+                expression {
+                    params.CHOICEs == 'no'
+                }
+            }
+            steps {
+                echo "DEPLOYED to NON-PROD"
+            }
         }
     }
+}
