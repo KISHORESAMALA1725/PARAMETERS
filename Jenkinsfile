@@ -19,6 +19,7 @@ pipeline {
             steps {
                 echo "DEPLOYED TO PROD SUCCESSFULLY"
             }
+         stage ('this is dev stage')  {
             when {
                 expression {
                     params.PRODNONPROD == 'dev'
@@ -27,6 +28,8 @@ pipeline {
             steps {
                 echo "DEPLOYED TO DEV SUCCESSFULLY"
             }
+         }
+
         }
         }
     }
