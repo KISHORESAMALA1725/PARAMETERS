@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string (name: 'USERNAME', defaultValue: 'KISHORE', description: 'Please Enter you name')
-        choice (name: 'PROD/nNONPROD', choices['prod','dev','uat'], description: 'Please enter your choice')
+        choice (name: 'PRODNONPROD', choices['prod','dev','uat'], description: 'Please enter your choice')
     }
     stages {
         stage ('This is BUILD-STAGE') {
@@ -12,8 +12,8 @@ pipeline {
         }
         stage ('This is when+parameter stage') {
             when {
-                expression {
-                    params.PROD/nNONPROD == 'yes'
+                expression{
+                     params.PRODNONPROD == 'yes'
                 }
             }
             steps {
@@ -23,7 +23,7 @@ pipeline {
         stage ('DEPLOYED to DEV') {
             when{
                 expression{
-                    params.PROD/nNONPROD == 'dev'
+                     params.PRODNONPROD == 'dev'
                 }
                 steps {
                     echo "DEPLOYED TO DEV"
