@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string (name: 'USERNAME', defaultValue: 'KISHORE', description: 'Please Enter you name')
-        choice (name: 'PRODNONPROD', choices['prod','dev','uat'], description: 'Please enter your choice')
+        choice (name: 'PRODNONPROD', choices: ['prod','dev','uat'], description: 'Please enter your choice')
     }
     stages {
         stage ('This is BUILD-STAGE') {
