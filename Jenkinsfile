@@ -20,17 +20,5 @@ pipeline {
                 echo "DEPLOYED TO PROD SUCCESSFULLY"
             }
         }
-        stage ('DEPLOYED to DEV') {
-            when{
-                expression{
-                     params.PRODNONPROD == 'dev'
-                }
-                steps {
-                    echo "DEPLOYED TO DEV"
-                }
-            }
-
-            }
-
         }
     }
