@@ -13,11 +13,19 @@ pipeline {
         stage ('This is when+parameter stage') {
             when {
                 expression{
-                     params.PRODNONPROD == 'yes'
+                     params.PRODNONPROD == 'prod'
                 }
             }
             steps {
                 echo "DEPLOYED TO PROD SUCCESSFULLY"
+            }
+            when {
+                expression {
+                    params.PRODNONPROD == 'dev'
+                }
+            }
+            steps {
+                echo "DEPLOYED TO DEV SUCCESSFULLY"
             }
         }
         }
