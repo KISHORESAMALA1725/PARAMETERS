@@ -20,7 +20,7 @@ pipeline {
                 echo "DEPLOYED TO PROD"
             }
         }
-        stage (This is NO stage) {
+        stage ('This is NO stage') {
             when {
                 expression {
                     params.CHOICES == 'no'
