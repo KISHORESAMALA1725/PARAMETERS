@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage ('Build-Stage') {
+        stage ('Build-Stage') { //
             steps {
                 echo "We are building NODEJS Application"
             }
