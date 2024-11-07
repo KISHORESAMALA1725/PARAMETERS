@@ -16,7 +16,7 @@ pipeline {
               submitter "maha"
               submitterParameter "whoapproved"
               parameters {
-                    string (name: 'USR_NAME', defaultValue: 'SIVA', description: 'Please enter your name')
+                    string (name: 'USR_NAME', defaultValue: 'KISHORE', description: 'Please enter your name')
                     string (name: 'CHG_TICKET', defaultValue: 'CHG12345', description: 'Please ENTER CHG# number')
                     booleanParam(name: 'SRE_APPROVED', defaultValue: true, description: 'Please select True or False')
                     choice (name: 'COURSE', choices: ['Gcp', 'DevOps', 'K8S'], description: 'Please enter description')
