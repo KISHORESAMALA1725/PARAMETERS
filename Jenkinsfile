@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage ('Build-Stage') { 
+        stage ('Build-Stage') { //
             steps {
                 echo "We are building NODEJS Application"
             }
@@ -23,8 +23,6 @@ pipeline {
                     text (name: 'Enter your Text', defaultValue: 'Please input your TEXT', description: 'please input some text her')
                     credentials(name: 'DOCKER_CREDS', required: true, description: 'DOCKER_CREDS')
                 }
-           }
-       }
                 steps {
                     echo "Deploying to PRODUCTION"
                     echo "Welcome Mr.${params.USR_NAME}"
@@ -32,7 +30,10 @@ pipeline {
                     echo "this is ${params.CHOICE}"
                     echo "Approved by this person-${whoapproved}"
               }
-          }
+           }
+       }
+
+     }
   }
 
 
