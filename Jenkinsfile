@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string (name: 'USERNAME', defaultValue: 'KISHORE', description: 'Enter your name')
-        choices(name: 'DeployToPROD', choices: ['yes','no'], description: 'choose your option')  
+        choice (name: 'DeployToPROD', choices: ['yes','no'], description: 'choose your option')  
     }
     stages {
         stage ('this is build'){
